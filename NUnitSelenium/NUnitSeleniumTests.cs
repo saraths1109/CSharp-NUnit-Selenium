@@ -23,7 +23,7 @@ namespace NUnitSelenium
         public static string LT_ACCESS_KEY = Environment.GetEnvironmentVariable("LT_ACCESS_KEY") == null ? "your accessKey" : Environment.GetEnvironmentVariable("LT_ACCESS_KEY");
         public static bool tunnel = Boolean.Parse(Environment.GetEnvironmentVariable("LT_TUNNEL")== null ? "false" : Environment.GetEnvironmentVariable("LT_TUNNEL"));       
         public static string build = Environment.GetEnvironmentVariable("LT_BUILD") == null ? "your build name" : Environment.GetEnvironmentVariable("LT_BUILD");
-        public static string seleniumUri = "https://hub.lambdatest.com:443/wd/hub";
+        public static string seleniumUri = "https://"+Environment.GetEnvironmentVariable("HOST")==null?"hub.lambdatest.com":Environment.GetEnvironmentVariable("HOST")+":443/wd/hub";
 
 
         ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
